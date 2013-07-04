@@ -137,3 +137,11 @@ else:
       metadata = node.readMetadata()
       metadata[key] = value
       node.writeMetadata(metadata)
+
+
+
+# extra plugin
+try:
+  import koolstof
+except ImportError:
+  pass
