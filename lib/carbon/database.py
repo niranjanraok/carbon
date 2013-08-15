@@ -145,3 +145,9 @@ try:
   import koolstof
 except ImportError:
   pass
+
+# extra plugin
+try:
+  from pyleveltsd.writer import LevelTsd
+except ImportError:
+  pass
