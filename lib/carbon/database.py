@@ -148,6 +148,6 @@ except ImportError:
 
 # extra plugin
 try:
-  import LevelTsd.cstore
+  import pyleveltsd.cstore
 except ImportError:
   pass
