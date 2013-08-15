@@ -145,3 +145,9 @@ try:
   import koolstof
 except ImportError:
   pass
+
+# extra plugin
+try:
+  import LevelTsd.cstore
+except ImportError:
+  pass
