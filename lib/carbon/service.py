@@ -23,7 +23,6 @@ from twisted.python.log import ILogObserver
 from carbon import state, events, instrumentation
 from carbon.pipeline import run_pipeline, Processor
 from carbon.log import carbonLogObserver
-from txjsonrpc.netstring import jsonrpc
 state.events = events
 state.instrumentation = instrumentation
 
@@ -209,7 +208,8 @@ def setupInstrumentation(root_service, settings):
 def setupJSONRPCServer(application):
   from pyleveltsd.cstore import LevelTsdCarbon
   from pyleveltsd.reader import LevelTsdReader
-  
+  from twisted.web import server
+
   factory = jsonrpc.RPCFactory(LevelTsdReader(LevelTsdCarbon._pesudo_singleton))
-  jsonrpcServer = internet.TCPServer(2005, factory)
+  jsonrpcServer = TCPServer(2005, factory)
   jsonrpcServer.setServiceParent(application)
